@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Healthcare AI Assistant | Intelligent Medical Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <span>HealthAI</span>
+                </div>
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i>
+                    New Chat
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="chat-history" id="chatHistory">
+                    <div class="history-header">Recent Chats</div>
+                    <div class="history-list" id="historyList">
+                        <!-- Chat history will appear here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="stats">
+                    <div class="stat-item">
+                        <i class="fas fa-database"></i>
+                        <span id="docCount">Loading...</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-comments"></i>
+                        <span id="chatCount">0</span>
+                    </div>
+                </div>
+                <button class="clear-history-btn" id="clearHistoryBtn">
+                    <i class="fas fa-trash-alt"></i>
+                    Clear History
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-content">
+            <header class="chat-header">
+                <div class="header-info">
+                    <h1>
+                        <i class="fas fa-stethoscope"></i>
+                        Healthcare AI Assistant
+                    </h1>
+                    <p>Powered by Advanced NLP | Real-time Medical Information</p>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="export-btn" id="exportChat">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-container" id="chatContainer">
+                <div class="messages-area" id="messagesArea">
+                    <!-- Welcome message -->
+                    <div class="message bot-message welcome-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="sender-name">HealthAI Assistant</span>
+                                <span class="message-time">Just now</span>
+                            </div>
+                            <div class="message-text">
+                                <h3>👋 Welcome to HealthAI!</h3>
+                                <p>I'm your intelligent medical information assistant. I can help you with:</p>
+                                <ul>
+                                    <li><i class="fas fa-stethoscope"></i> Disease symptoms and causes</li>
+                                    <li><i class="fas fa-pills"></i> Treatment options and medications</li>
+                                    <li><i class="fas fa-heartbeat"></i> Prevention and healthy lifestyle</li>
+                                    <li><i class="fas fa-chart-line"></i> Risk factors and statistics</li>
+                                </ul>
+                                <div class="example-questions">
+                                    <p><strong>Try asking:</strong></p>
+                                    <div class="example-bubbles">
+                                        <span class="example-bubble">What are the symptoms of diabetes?</span>
+                                        <span class="example-bubble">How to prevent heart disease?</span>
+                                        <span class="example-bubble">What causes high blood pressure?</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                    <div class="typing-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="typing-text">HealthAI is thinking...</span>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <div class="suggestions-bar" id="suggestionsBar">
+                        <!-- Dynamic suggestions will appear here -->
+                    </div>
+                    <div class="input-group">
+                        <textarea
+                            id="messageInput"
+                            placeholder="Ask me anything about health, diseases, symptoms, or treatments..."
+                            rows="1"
+                        ></textarea>
+                        <button id="sendBtn" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send
+                        </button>
+                    </div>
+                    <div class="input-footer">
+                        <span class="input-hint">
+                            <i class="fas fa-keyboard"></i> Press Enter to send, Shift+Enter for new line
+                        </span>
+                        <span class="disclaimer">
+                            <i class="fas fa-shield-alt"></i> Medical information only - Not a substitute for professional advice
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
